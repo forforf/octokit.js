@@ -290,8 +290,13 @@ makeOctokit = (_, jQuery, base64encode, userAgent) =>
 
           # List user repositories
           # -------
-          @getRepos = () ->
-            _request 'GET', "#{_rootPath}/repos?type=all&per_page=1000&sort=updated", null
+          # opts added by forforf - very hacky right now so no pull request
+          @getRepos = (opts) ->
+            sortParam = if opts.sort then "&sort=#{opts.sort}" else "&sort=updated"
+            directionParam = if opts.direction then "&direction=#{opts.direction}" else ""
+            perPageParam = if opts.per_page then "&per_page=#{opts.per_page}" else  "&per_page=1000"
+            typeParam = if opts.type then "type=#{opts.type}" else "type=all"
+            _request 'GET', "#{_rootPath}/repos?#{typeParam}#{perPageParam}#{sortParam}#{directionParam}", null
 
           # List user organizations
           # -------
