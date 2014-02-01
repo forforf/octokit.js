@@ -292,6 +292,7 @@ makeOctokit = (_, jQuery, base64encode, userAgent) =>
           # -------
           # opts added by forforf - very hacky right now so no pull request
           @getRepos = (opts) ->
+            opts = {} unless opts
             sortParam = if opts.sort then "&sort=#{opts.sort}" else "&sort=updated"
             directionParam = if opts.direction then "&direction=#{opts.direction}" else ""
             perPageParam = if opts.per_page then "&per_page=#{opts.per_page}" else  "&per_page=1000"

@@ -280,6 +280,9 @@
             };
             this.getRepos = function(opts) {
               var directionParam, perPageParam, sortParam, typeParam;
+              if (!opts) {
+                opts = {};
+              }
               sortParam = opts.sort ? "&sort=" + opts.sort : "&sort=updated";
               directionParam = opts.direction ? "&direction=" + opts.direction : "";
               perPageParam = opts.per_page ? "&per_page=" + opts.per_page : "&per_page=1000";
