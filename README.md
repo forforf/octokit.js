@@ -1,3 +1,15 @@
+## Fork changes
+
+Added some changes to take parameters for `user/repos` like ordering, pagination, etc
+However, abandoned the approach fairly early and separated etag and api access into separate libraries
+
+As my project was angular, I created a angular specific module for etag support:
+
+[forforf/angular-etag](https://github.com/forforf/angular-etag) caches etags to browser local storage and is self contained, small and can be modified to support other caching and storage strategies.
+
+Iteraction with the Github API is still in some growing stages but is [forforf/github-repo-fetcher](https://github.com/forforf/github-repo-fetcher)
+
+
 # octokit.js [![Build Status](https://travis-ci.org/philschatz/octokit.js.png)](https://travis-ci.org/philschatz/octokit.js)
 
 octokit.js provides a minimal higher-level wrapper around git's [plumbing commands](http://git-scm.com/book/en/Git-Internals-Plumbing-and-Porcelain),
